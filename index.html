@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sistema de Chamados · Demo</title>
-  <meta name="description" content="Demonstração de um sistema de chamados (help desk) com dashboard, kanban, SLA, checklist e timeline. Dados 100% fictícios." />
+  <meta name="description" content="Demonstração de um sistema de chamados: início com fila de trabalho, dashboard por prazo, checklist, responsáveis e linha do tempo. Dados 100% fictícios." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%238B5CF6'/><path d='M9 11h14M9 16h14M9 21h9' stroke='white' stroke-width='2.5' stroke-linecap='round'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234169e1'/><path d='M9 18v-2a7 7 0 0 1 14 0v2' stroke='white' stroke-width='2.5' fill='none'/><rect x='7' y='17' width='4' height='6' rx='1.5' fill='white'/><rect x='21' y='17' width='4' height='6' rx='1.5' fill='white'/></svg>" />
 </head>
 <body>
   <div id="app"></div>
@@ -17,10 +17,14 @@
     <div class="modal" role="dialog" aria-modal="true">
       <h3 id="modal-title"></h3>
       <p id="modal-text"></p>
-      <div class="modal-actions">
-        <button class="btn ghost" id="modal-cancel">Cancelar</button>
-        <button class="btn" id="modal-ok">Confirmar</button>
-      </div>
+      <div class="modal-acoes"><button class="btn-out" id="modal-cancel">Cancelar</button><button class="btn-pri" id="modal-ok">Confirmar</button></div>
+    </div>
+  </div>
+  <div id="busca" class="modal-bg top" hidden>
+    <div class="busca-box">
+      <input id="busca-in" type="search" placeholder="Buscar chamado por nº, título ou cliente…" autocomplete="off" />
+      <ul id="busca-res"></ul>
+      <p class="mut xs">Enter abre o primeiro · Esc fecha</p>
     </div>
   </div>
   <script src="data.js"></script>

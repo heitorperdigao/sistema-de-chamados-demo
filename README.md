@@ -1,12 +1,12 @@
 <div align="center">
 
-# 🎫 Sistema de Chamados · Demo
+# 🎧 Sistema de Chamados · Demo
 
-**Help desk completo rodando direto no navegador: dashboard, kanban, SLA, checklist e linha do tempo.**
+**Gestão de chamados para equipes de suporte: fila de trabalho por prazo, dashboard da equipe, checklist e linha do tempo.**
 
-[![Abrir demo](https://img.shields.io/badge/Abrir_demo_online-8B5CF6?style=for-the-badge&logo=googlechrome&logoColor=white)](https://heitorperdigao.github.io/sistema-de-chamados-demo/)
+[![Abrir demo](https://img.shields.io/badge/Testar_a_demo_online-4169E1?style=for-the-badge&logo=googlechrome&logoColor=white)](https://heitorperdigao.github.io/sistema-de-chamados-demo/)
 
-<img src="docs/dashboard.jpg" alt="Dashboard" width="100%" />
+<img src="docs/inicio.jpg" alt="Tela inicial" width="100%" />
 
 </div>
 
@@ -14,40 +14,46 @@
 
 ## 💡 Sobre
 
-Versão de demonstração de um **sistema de chamados** que desenvolvi e que é usado em produção por uma empresa de software em Londrina-PR.
-O sistema real é privado (PHP + PostgreSQL, com dados de clientes). Esta demo recria as principais funcionalidades **do zero, com dados 100% fictícios**, para que qualquer pessoa possa testar sem instalar nada.
+Versão pública de demonstração de um **sistema de chamados que desenvolvi e que está em produção** em uma empresa de software de Londrina-PR, usado diariamente pela equipe de suporte.
 
-**Entre com um dos 3 perfis** e veja como as permissões mudam o que cada um pode fazer:
+O sistema real é privado (PHP + PostgreSQL, com dados de clientes e módulos fiscais). Esta demo recria **o módulo de Chamados com o mesmo visual e o mesmo fluxo de trabalho**, do zero e **com dados 100% fictícios**, para que qualquer pessoa possa testar sem instalar nada.
+
+Entre com um dos perfis e veja como as permissões mudam o que cada um vê:
 
 | Perfil | O que pode fazer |
 |---|---|
-| 👩‍💼 **Administrador** | Vê todos os chamados, atribui responsáveis, muda status e prioridade |
-| 🧑‍🔧 **Responsável** | Atende chamados e move os cartões no quadro kanban |
-| 🙋 **Usuário** | Abre chamados e acompanha só os próprios |
+| 👨‍💼 **Administrador** | Vê a equipe toda, atribui responsáveis, muda status, prioridade e prazo |
+| 🧑‍🔧 **Responsável** | Trabalha a própria fila e atende os chamados atribuídos |
+| 🙋 **Usuário** | Abre chamados e acompanha só os que abriu |
 
 ## ✨ Funcionalidades
 
-- **Dashboard** com indicadores (em aberto, SLA estourado, sem responsável, concluídos) e feed de atividade
-- **SLA por prioridade**: urgente 4 h, alta 24 h, média 72 h, baixa 7 dias, com selo "no prazo / vence em breve / estourado"
-- **Quadro kanban** com arrastar e soltar para mudar o status
-- **Página do chamado** com checklist e barra de progresso, etiquetas, vários responsáveis e comentários
-- **Linha do tempo** que registra automaticamente toda alteração (status, prioridade, responsáveis, checklist)
-- **Busca sem acento e sem diferenciar maiúsculas**: "aliquota" encontra "alíquota"
-- **Tema claro e escuro**, layout responsivo para celular e **impressão/PDF** do chamado
-- **Segurança no front**: todo texto do usuário é escapado (sem XSS), sem `alert()`/`confirm()` nativos (toasts e modais próprios)
+- **Início** com saudação, contagem de atrasados e "vencem hoje", e o card **Seu próximo**: o chamado mais urgente da sua fila, com Abrir, Concluir e **+1 dia**
+- **Equipe agora**: alertas (chamados sem responsável), progresso do mês, totais da equipe, atividade recente e quem está online
+- **Dashboard** com visão **Meus / Equipe**, indicadores (abertos, atrasados, concluídos em 30 dias, mediana de resolução, em desenvolvimento) e colunas **Atrasados**, **Para hoje**, **Próximos** e **Em desenvolvimento**
+- **Página do chamado** com status, prioridade, prazo, vários responsáveis, etiquetas, checklist com progresso e comentários
+- **Linha do tempo automática**: toda alteração fica registrada com autor e horário
+- **Busca rápida com Ctrl + K** e busca que **ignora acentos** ("aliquota" encontra "alíquota")
+- **Menu lateral em acordeão**, tema escuro e claro, layout para celular e impressão do chamado
+- **Segurança no front**: todo texto do usuário é escapado (sem XSS) e nada de `alert()`/`confirm()` nativos
 
 ## 📸 Telas
 
-| Quadro kanban | Chamado |
+| Dashboard | Chamado |
 |---|---|
-| <img src="docs/kanban.jpg" /> | <img src="docs/chamado.jpg" /> |
+| <img src="docs/dashboard.jpg" /> | <img src="docs/chamado.jpg" /> |
+
+| Menu lateral |
+|---|
+| <img src="docs/menu.jpg" width="60%" /> |
 
 ## 🛠️ Tecnologias
 
 <img src="https://skillicons.dev/icons?i=html,css,js,github&theme=dark" />
 
-HTML, CSS e **JavaScript puro**, sem framework e sem build. Roteamento por hash, estado em `localStorage` e componentes renderizados por template strings.
-Publicado com **GitHub Pages**.
+HTML, CSS e **JavaScript puro**, sem framework e sem build: roteamento por hash, estado em `localStorage` e telas renderizadas por template strings. Publicado no **GitHub Pages**.
+
+> No sistema real: PHP, PostgreSQL, Bootstrap 5, notificações em tempo real (SSE), chat interno, módulos fiscais (SPED, ICMS, IE, NCM) e central de relatórios.
 
 ## 🚀 Rodar localmente
 
@@ -55,7 +61,7 @@ Publicado com **GitHub Pages**.
 npx serve .
 ```
 
-> Os dados ficam salvos só no seu navegador. O botão **Restaurar demo** volta tudo ao estado inicial.
+Os dados ficam salvos só no seu navegador. Use **Restaurar dados da demo**, no menu lateral, para voltar ao estado inicial.
 
 ---
 
